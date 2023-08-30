@@ -22,13 +22,12 @@
   <launchable type="desktop-id">org.metal3d.scoreboard.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image></image>
+        <image>https://</image>
     </screenshot>
   </screenshots>
 
-  <url type="bugtracker">https://github.com/fyne-io/flatpak_demo/issues</url>
-  <url type="donation">https://github.com/sponsors/fyne-io</url>
-  <url type="homepage">https://github.com/fyne-io/flatpak_demo</url>
+  <url type="bugtracker">https://github.com/metal3d/scoreboard/issues</url>
+  <url type="homepage">https://github.com/metal3d/scoreboard</url>
 
   <!-- Generate the oars rating at: https://hughsie.github.io/oars/generate.html -->
   <content_rating type="oars-1.1" />
