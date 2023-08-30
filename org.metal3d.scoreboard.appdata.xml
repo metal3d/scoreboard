@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.metal3d.scoreboard</id>
+  
+  <name>Scoreboard</name>
+  <developer_name>Patrice Ferlet</developer_name>
+  <summary>A simple scoreboard to count points for any game</summary>
+  
+  <metadata_license>MIT</metadata_license>
+  <project_license>BSD-3-Clause</project_license>
+  
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </recommends>
+  
+  <description>
+    <p>This is a simple utility to count points while you're playing a game. Simple add players, order them, and then start to count.</p>
+  </description>
+  
+  <launchable type="desktop-id">org.metal3d.scoreboard.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image></image>
+    </screenshot>
+  </screenshots>
+
+  <url type="bugtracker">https://github.com/fyne-io/flatpak_demo/issues</url>
+  <url type="donation">https://github.com/sponsors/fyne-io</url>
+  <url type="homepage">https://github.com/fyne-io/flatpak_demo</url>
+
+  <!-- Generate the oars rating at: https://hughsie.github.io/oars/generate.html -->
+  <content_rating type="oars-1.1" />
+
+  <releases>
+    <release version="1.2.0" date="2021-12-22" type="stable">
+      <description>
+        <p>Better metadata and sandbox permissions</p>
+      </description>
+      <url type="details">https://github.com/fyne-io/flatpak_demo/releases/tag/v1.2.0</url>
+    </release>
+  </releases>
+
+</component>

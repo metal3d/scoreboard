@@ -1,0 +1,32 @@
+app-id: org.metal3d.scoreboard
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+    - org.freedesktop.Sdk.Extension.golang
+command: scoreboard
+
+finish-args:
+    - --share=ipc # Share IPC namespace with the host (necessary for X11).
+    - --socket=x11
+    - --device=dri # OpenGL rendering support.
+    # Needed to support desktop notifications.
+    - --talk-name=org.freedesktop.Notifications
+
+build-options:
+  env:
+    - GOBIN=/app/bin
+    - GOROOT=/usr/lib/sdk/golang
+
+modules:
+  - name: scoreboard
+    buildsystem: simple
+    build-commands:
+      - $GOROOT/bin/go build -trimpath -o scoreboard ./cmd/scoreboard
+      - install -Dm00755 scoreboard $FLATPAK_DEST/bin/scoreboard
+      - install -Dm00644 Icon.png $FLATPAK_DEST/share/icons/hicolor/256x256/apps/$FLATPAK_ID.png
+      - install -Dm00644 $FLATPAK_ID.desktop $FLATPAK_DEST/share/applications/$FLATPAK_ID.desktop
+      - install -Dm00644 $FLATPAK_ID.appdata.xml $FLATPAK_DEST/share/appdata/$FLATPAK_ID.appdata.xml
+    sources:
+      - type: dir
+        path: ./

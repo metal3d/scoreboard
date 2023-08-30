@@ -1,0 +1,4 @@
+fyne-cross
+*.jks
+.flatpak-builder
+.android

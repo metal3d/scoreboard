@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Scoreboard
+Comment=A simple Scoreboard to count points for any game.
+Categories=Game;Utility;
+Icon=org.metal3d.scoreboard
+Exec=scoreboard
+Terminal=false
