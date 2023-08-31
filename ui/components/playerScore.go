@@ -17,6 +17,7 @@ type Textable interface {
 
 var _ fyne.Widget = (*PlayerScore)(nil)
 
+// PlayerScore is a widget that displays a player's name, score and a list of scores.
 type PlayerScore struct {
 	widget.BaseWidget
 	playerNameLabel  fyne.CanvasObject
@@ -26,6 +27,7 @@ type PlayerScore struct {
 	OnSubmitted      func(score float64, edited bool)
 }
 
+// NewPlayerScore creates a new PlayerScore widget.
 func NewPlayerScore(score *data.Score) *PlayerScore {
 	ps := &PlayerScore{
 		playerNameLabel:  NewBGColoredLabel(score.Player.Name, score.Player.Color),
@@ -38,11 +40,13 @@ func NewPlayerScore(score *data.Score) *PlayerScore {
 	return ps
 }
 
+// Refresh implements fyne.Widget. It refreshes the widget.
 func (ps *PlayerScore) Refresh() {
 	ps.playerNameLabel.Refresh()
 	ps.playerScoreLabel.Refresh()
 }
 
+// CreateRenderer implements fyne.Widget. It creates a new renderer for the widget.
 func (ps *PlayerScore) CreateRenderer() fyne.WidgetRenderer {
 	renderer := widget.NewSimpleRenderer(
 		container.NewBorder(
@@ -61,6 +65,7 @@ func (ps *PlayerScore) CreateRenderer() fyne.WidgetRenderer {
 	return renderer
 }
 
+// AddScoreLine adds a new score line to the widget.
 func (ps *PlayerScore) AddScoreLine() *PlayerScore {
 	element := NewEditableLabel()
 	element.SetOnSubmitted(ps.Submitted)
@@ -69,6 +74,7 @@ func (ps *PlayerScore) AddScoreLine() *PlayerScore {
 	return ps
 }
 
+// Submitted is called when a score line is submitted.
 func (ps *PlayerScore) Submitted(score float64, editing bool) {
 	ps.CalculateTotalScore()
 	if ps.OnSubmitted != nil {
@@ -76,6 +82,7 @@ func (ps *PlayerScore) Submitted(score float64, editing bool) {
 	}
 }
 
+// CalculateTotalScore calculates the total score of the player.
 func (ps *PlayerScore) CalculateTotalScore() {
 	scores := []float32{}
 	var total float32
@@ -101,6 +108,7 @@ func (ps *PlayerScore) CalculateTotalScore() {
 	ps.Refresh()
 }
 
+// Score returns the score object of the player.
 func (ps *PlayerScore) Score() *data.Score {
 	return ps.score
 }

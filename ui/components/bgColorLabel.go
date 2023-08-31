@@ -11,12 +11,14 @@ import (
 
 var _ fyne.Widget = (*BgColoredLabel)(nil)
 
+// BgColoredLabel is a widget that displays a text on a colored background.
 type BgColoredLabel struct {
 	widget.BaseWidget
 	text *canvas.Text
 	rect *canvas.Rectangle
 }
 
+// NewBgColoredLabel creates a new BgColoredLabel widget.
 func NewBGColoredLabel(text string, col color.Color) *BgColoredLabel {
 
 	c := &BgColoredLabel{
@@ -30,6 +32,7 @@ func NewBGColoredLabel(text string, col color.Color) *BgColoredLabel {
 	return c
 }
 
+// SetBgColor sets the background color of the widget.
 func (c *BgColoredLabel) SetBgColor(col color.Color) {
 	if c.rect == nil {
 		return
@@ -50,17 +53,20 @@ func (c *BgColoredLabel) SetBgColor(col color.Color) {
 	c.rect.Refresh()
 }
 
+// Refresh implements fyne.Widget. It resizes the widget.
 func (c *BgColoredLabel) Resize(size fyne.Size) {
 	c.rect.Resize(size)
 	c.text.Resize(size)
 }
 
+// CreateRenderer implements fyne.Widget. It creates a new renderer for the widget.
 func (c *BgColoredLabel) CreateRenderer() fyne.WidgetRenderer {
 	return widget.NewSimpleRenderer(
 		container.NewMax(c.rect, c.text),
 	)
 }
 
+// SetText sets the text of the widget.
 func (c *BgColoredLabel) SetText(text string) {
 	c.text.Text = text
 }

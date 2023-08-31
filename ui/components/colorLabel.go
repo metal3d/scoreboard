@@ -10,11 +10,13 @@ import (
 
 var _ fyne.Widget = (*ColoredLabel)(nil)
 
+// ColoredLabel is a widget that displays a colored text.
 type ColoredLabel struct {
 	widget.BaseWidget
 	text *canvas.Text
 }
 
+// NewColoredLabel creates a new ColoredLabel widget.
 func NewColoredLabel(text string, color color.Color) *ColoredLabel {
 	label := &ColoredLabel{
 		text: canvas.NewText(text, color),
@@ -26,12 +28,14 @@ func NewColoredLabel(text string, color color.Color) *ColoredLabel {
 	return label
 }
 
+// CreateRenderer implements fyne.Widget. It creates a new renderer for the widget.
 func (c *ColoredLabel) CreateRenderer() fyne.WidgetRenderer {
 	return widget.NewSimpleRenderer(
 		c.text,
 	)
 }
 
+// SetText sets the text of the widget.
 func (c *ColoredLabel) SetText(text string) {
 	c.text.Text = text
 	c.Refresh()

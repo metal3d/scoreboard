@@ -11,6 +11,7 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
+// IndexPage is the main page of the application
 func (a *App) IndexPage() {
 
 	gamepageButton := widget.NewButtonWithIcon("Create a new game", theme.DocumentCreateIcon(), func() {
