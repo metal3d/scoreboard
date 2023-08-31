@@ -63,7 +63,6 @@ func (a *App) AddPlayersPage() {
 			dialog.ShowError(fmt.Errorf("You need at lease %d players", minplayer), a.mainWindow)
 			return
 		}
-		doCapture(a.mainWindow, "players")
 		a.currentGame.PlayerScores = players.Scores()
 		a.ScorePage()
 	})

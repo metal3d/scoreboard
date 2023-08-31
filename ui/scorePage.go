@@ -41,7 +41,6 @@ func (a *App) ScorePage() {
 					currentScore = v.Score()
 				}
 			}
-			doCapture(a.mainWindow, "score")
 		}
 		elements = append(elements, element)
 	}

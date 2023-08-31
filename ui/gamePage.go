@@ -48,7 +48,6 @@ func (a *App) GamePage() {
 	form.SubmitText = "Create"
 	form.OnSubmit = func() {
 		a.SetGame(data.NewGame(entry.Text))
-		doCapture(a.mainWindow, "game")
 		a.AddPlayersPage()
 	}
 
