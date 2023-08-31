@@ -10,7 +10,6 @@ finish-args:
     - --share=ipc # Share IPC namespace with the host (necessary for X11).
     - --socket=x11
     - --device=dri # OpenGL rendering support.
-    # Needed to support desktop notifications.
     - --talk-name=org.freedesktop.Notifications
 
 build-options:
