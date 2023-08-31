@@ -1,6 +1,8 @@
 # Scoreboard
 
-![Logo](./Icon.png)
+<p align="center">
+    <img src="./Icon.png" style="width: 25%" />
+</p>
 
 A simple scoreboard application to calculate scores while you're playing.
 
