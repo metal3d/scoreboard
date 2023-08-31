@@ -45,7 +45,7 @@ fyne.io/fyne/v2/widget
 fyne.io/systray
 fyne.io/systray/internal/generated/menu
 fyne.io/systray/internal/generated/notifier
-# fyne.io/x/fyne v0.0.0-20230717140956-ad10f343f15e
+# fyne.io/x/fyne v0.0.0-20230717140956-ad10f343f15e => github.com/metal3d/fyne-x v0.0.0-20230703123904-083362f6aec2
 ## explicit; go 1.14
 fyne.io/x/fyne/theme
 # github.com/davecgh/go-spew v1.1.1
@@ -190,3 +190,4 @@ gopkg.in/yaml.v3
 # honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2
 ## explicit
 honnef.co/go/js/dom
+# fyne.io/x/fyne => github.com/metal3d/fyne-x v0.0.0-20230703123904-083362f6aec2

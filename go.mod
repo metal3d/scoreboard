@@ -36,3 +36,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2 // indirect
 )
+
+replace fyne.io/x/fyne => github.com/metal3d/fyne-x v0.0.0-20230703123904-083362f6aec2
