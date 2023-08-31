@@ -25,4 +25,10 @@ Author: [Patrice Ferlet](https://github.com/metal3d) aka Metal3d
 All rights reserved. This software is distributed without any warranty.
 
 `
+
+	documentationText = `# Scoreboard
+
+Simply press the "Create a new game" button to create a new game. You'll be asked for a name for the game. Then you will add players and start to add scores.
+
+`
 )

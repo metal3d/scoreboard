@@ -43,9 +43,12 @@ func (a *App) IndexPage() {
 	icon.FillMode = canvas.ImageFillContain
 	icon.SetMinSize(fyne.NewSize(64, 64))
 
+	doc := widget.NewRichTextFromMarkdown(documentationText)
+	doc.Wrapping = fyne.TextWrapWord
+
 	a.mainWindow.SetContent(container.NewVBox(
-		widget.NewLabel("Scoreboard!"),
 		icon,
+		doc,
 		widget.NewLabel("A simple scoreboard application. Selection an action:"),
 		gamepageButton,
 		aboutButton,

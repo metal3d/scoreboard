@@ -50,14 +50,14 @@ func (a *App) AddPlayersPage() {
 	entry := widget.NewEntry()
 	entry.SetPlaceHolder("Player Name")
 
-	button := widget.NewButtonWithIcon("", theme.ConfirmIcon(), func() {
+	addPlayerButton := widget.NewButtonWithIcon("", theme.ConfirmIcon(), func() {
 		addPlayer(entry.Text)
 		entry.SetText("")
 	})
-	button.Disable()
+	addPlayerButton.Disable()
 
 	var okbutton *widget.Button
-	okbutton = widget.NewButtonWithIcon("", theme.ConfirmIcon(), func() {
+	okbutton = widget.NewButtonWithIcon("Start!", theme.ConfirmIcon(), func() {
 		if len(players.Scores()) < minplayer {
 			okbutton.Disable()
 			dialog.ShowError(fmt.Errorf("You need at lease %d players", minplayer), a.mainWindow)
@@ -66,13 +66,14 @@ func (a *App) AddPlayersPage() {
 		a.currentGame.PlayerScores = players.Scores()
 		a.ScorePage()
 	})
+	okbutton.Importance = widget.HighImportance
 	okbutton.Disable()
 
 	entry.OnChanged = func(text string) {
 		if text == "" {
-			button.Disable()
+			addPlayerButton.Disable()
 		} else {
-			button.Enable()
+			addPlayerButton.Enable()
 		}
 	}
 
@@ -86,13 +87,21 @@ func (a *App) AddPlayersPage() {
 		entry.SetText("")
 	}
 
-	view := container.NewBorder(
-		label, nil, nil, button, entry,
+	backbutton := widget.NewButtonWithIcon("", theme.MediaSkipPreviousIcon(), func() {
+		a.GamePage()
+	})
+
+	addPlayerView := container.NewBorder(
+		label, nil, nil, addPlayerButton, entry,
+	)
+
+	topView := container.NewBorder(
+		nil, addPlayerView, backbutton, okbutton,
 	)
 
 	a.mainWindow.SetContent(container.NewBorder(
-		view,
-		okbutton, nil, nil,
+		topView,
+		nil, nil, nil,
 		players,
 	))
 }

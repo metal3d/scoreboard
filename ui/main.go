@@ -2,9 +2,9 @@ package ui
 
 import (
 	"log"
+	"math"
 	"scoreboard/data"
 	"scoreboard/ui/resources"
-	"math"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -26,8 +26,8 @@ func CreateApp() *App {
 	window := app.NewWindow("Scoreboard")
 	var w, h, scale float32
 	scale = 1
-	w = 1080 * scale
-	h = w / 2.20
+	w = 1024 * scale
+	h = w / 16 * 9
 	w = float32(math.Ceil(float64(w)))
 	h = float32(math.Floor(float64(h)))
 	log.Printf("w: %f, h: %f", w, h)
