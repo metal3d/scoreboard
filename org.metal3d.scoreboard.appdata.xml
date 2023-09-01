@@ -16,7 +16,8 @@
   </recommends>
   
   <description>
-    <p>This is a simple utility to count points while you're playing a game. Simple add players, order them, and then start to count.</p>
+      <p>This is a simple utility to count points while you're playing a game. Simply add some players, order them, and then start to count your scores.</p>
+      <p>It's a very simple tool, made with Fyne.io and Go.</p>
   </description>
   
   <launchable type="desktop-id">org.metal3d.scoreboard.desktop</launchable>
