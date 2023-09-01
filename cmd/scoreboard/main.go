@@ -27,15 +27,15 @@ func getLocale() (string, error) {
 }
 
 func init() {
-
 	// detect the os lang
 	lang, err := getLocale()
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		lang = "en_US"
 	}
 	i18n.SetLang(lang)
-	log.Printf("Using locale %s", lang)
 }
+
 func main() {
 	app := ui.CreateApp()
 
