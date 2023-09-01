@@ -49,7 +49,6 @@ func (a *App) IndexPage() {
 	a.mainWindow.SetContent(container.NewVBox(
 		icon,
 		doc,
-		widget.NewLabel("A simple scoreboard application. Selection an action:"),
 		gamepageButton,
 		aboutButton,
 	))
