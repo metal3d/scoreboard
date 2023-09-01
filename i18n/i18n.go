@@ -1,7 +1,6 @@
 package i18n
 
 import (
-	"log"
 	"sync"
 )
 
@@ -15,7 +14,6 @@ var mutex sync.Mutex
 func I(key string) string {
 	mutex.Lock()
 	defer mutex.Unlock()
-	log.Printf("I(%s) => %s", key, lang)
 	if translations[lang] == nil {
 		return key
 	}
