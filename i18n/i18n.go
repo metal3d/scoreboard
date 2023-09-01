@@ -7,7 +7,9 @@ import (
 //go:generate go run i18n_generator.go
 //go:generate go fmt ./
 
-var lang = "en_US"
+const defaultLang = "en_US"
+
+var lang = defaultLang
 var translations = map[string]map[string]string{}
 var mutex sync.Mutex
 
@@ -17,10 +19,15 @@ func I(key string) string {
 	if translations[lang] == nil {
 		return key
 	}
-	if translations[lang][key] == "" {
-		return key
+	if v, ok := translations[lang][key]; !ok {
+		// try to find the key in the english version
+		if v, ok := translations[defaultLang][key]; ok {
+			return v
+		}
+		return key // not found, return the key
+	} else {
+		return v // found, return the translation
 	}
-	return translations[lang][key]
 }
 
 func SetLang(l string) {
