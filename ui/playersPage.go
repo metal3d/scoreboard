@@ -3,6 +3,7 @@ package ui
 import (
 	"fmt"
 	"scoreboard/data"
+	. "scoreboard/i18n"
 	"scoreboard/ui/components"
 	"strings"
 
@@ -19,7 +20,7 @@ const minplayer = 2
 // This page gives the possibility to add players to the game, and to modify their color or remove the player.
 func (a *App) AddPlayersPage() {
 
-	label := widget.NewRichTextFromMarkdown(addPlayersText)
+	label := widget.NewRichTextFromMarkdown(fmt.Sprintf(I("add.player"), minplayer))
 	label.Wrapping = fyne.TextWrapWord
 
 	players := components.NewPlayerList(a.currentGame.PlayerScores)
@@ -31,7 +32,7 @@ func (a *App) AddPlayersPage() {
 		// check if player already exists
 		for _, player := range players.Scores() {
 			if player.Player.Name == name {
-				dialog.ShowError(fmt.Errorf("Player %s already exists", name), a.mainWindow)
+				dialog.ShowError(fmt.Errorf(I("Player %s already exists"), name), a.mainWindow)
 				return
 			}
 		}
@@ -48,7 +49,7 @@ func (a *App) AddPlayersPage() {
 	}
 
 	entry := widget.NewEntry()
-	entry.SetPlaceHolder("Player Name")
+	entry.SetPlaceHolder(I("Player Name"))
 
 	addPlayerButton := widget.NewButtonWithIcon("", theme.ConfirmIcon(), func() {
 		addPlayer(entry.Text)
@@ -57,10 +58,10 @@ func (a *App) AddPlayersPage() {
 	addPlayerButton.Disable()
 
 	var okbutton *widget.Button
-	okbutton = widget.NewButtonWithIcon("Start!", theme.ConfirmIcon(), func() {
+	okbutton = widget.NewButtonWithIcon(I("Start!"), theme.ConfirmIcon(), func() {
 		if len(players.Scores()) < minplayer {
 			okbutton.Disable()
-			dialog.ShowError(fmt.Errorf("You need at lease %d players", minplayer), a.mainWindow)
+			dialog.ShowError(fmt.Errorf(I("You need at lease %d players"), minplayer), a.mainWindow)
 			return
 		}
 		a.currentGame.PlayerScores = players.Scores()

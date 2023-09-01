@@ -2,6 +2,7 @@ package ui
 
 import (
 	"scoreboard/data"
+	. "scoreboard/i18n"
 	"scoreboard/ui/components"
 
 	"fyne.io/fyne/v2"
@@ -64,7 +65,7 @@ func (a *App) ScorePage() {
 func topBar(app *App) fyne.CanvasObject {
 
 	resetButton := widget.NewButtonWithIcon("", theme.DeleteIcon(), func() {
-		dialog.NewConfirm("Sure ?", "Are you sure you want to reset the game ?", func(ok bool) {
+		dialog.NewConfirm(I("Sure?"), I("Are you sure you want to reset the game?"), func(ok bool) {
 			if !ok {
 				return
 			}
@@ -77,7 +78,7 @@ func topBar(app *App) fyne.CanvasObject {
 	})
 
 	backButton := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
-		dialog.NewConfirm("Sure ?", "Are you sure you want to go back ?", func(ok bool) {
+		dialog.NewConfirm(I("Sure?"), I("Are you sure you want to go back?"), func(ok bool) {
 			if !ok {
 				return
 			}

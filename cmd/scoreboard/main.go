@@ -1,11 +1,41 @@
 package main
 
 import (
-	"scoreboard/data"
-	"scoreboard/ui"
+	"fmt"
+	"log"
 	"os"
+	"os/exec"
+	"scoreboard/data"
+	"scoreboard/i18n"
+	"scoreboard/ui"
+	"strings"
 )
 
+func getLocale() (string, error) {
+	envlang, ok := os.LookupEnv("LANG")
+	if ok {
+		return strings.Split(envlang, ".")[0], nil
+	}
+
+	cmd := exec.Command("powershell", "Get-Culture | select -exp Name")
+	output, err := cmd.Output()
+	if err == nil {
+		return strings.Trim(string(output), "\r\n"), nil
+	}
+
+	return "", fmt.Errorf("cannot determine locale")
+}
+
+func init() {
+
+	// detect the os lang
+	lang, err := getLocale()
+	if err != nil {
+		log.Fatal(err)
+	}
+	i18n.SetLang(lang)
+	log.Printf("Using locale %s", lang)
+}
 func main() {
 	app := ui.CreateApp()
 

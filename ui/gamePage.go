@@ -3,6 +3,7 @@ package ui
 import (
 	"fmt"
 	"scoreboard/data"
+	. "scoreboard/i18n"
 	"strings"
 
 	"fyne.io/fyne/v2"
@@ -18,7 +19,7 @@ func (a *App) GamePage() {
 		entry *widget.Entry
 	)
 
-	label := widget.NewRichTextFromMarkdown(gameCreateText)
+	label := widget.NewRichTextFromMarkdown(I("presentation.content"))
 	label.Wrapping = fyne.TextWrapWord
 
 	entry = widget.NewEntry()
@@ -31,7 +32,7 @@ func (a *App) GamePage() {
 	entry.Validator = func(text string) error {
 		text = strings.TrimSpace(text)
 		if text == "" {
-			return fmt.Errorf("Game name cannot be empty")
+			return fmt.Errorf(I("Game name cannot be empty"))
 		}
 		return nil
 	}
@@ -43,7 +44,7 @@ func (a *App) GamePage() {
 	}
 
 	form = widget.NewForm(
-		widget.NewFormItem("Game Name", entry),
+		widget.NewFormItem(I("Game Name"), entry),
 	)
 	form.SubmitText = "Create"
 	form.OnSubmit = func() {

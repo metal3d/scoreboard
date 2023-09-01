@@ -1,0 +1,62 @@
+'%s': '%s'
+'...': '...'
+About: À propos
+Are you sure you want to go back?: Êtes vous sûr de vouloir revenir en arrière ?
+Are you sure you want to reset the game?: Êtes vous sûr de vouloir réinitialiser le jeu en cours ?
+Close: Fermer
+Create a new game: Créer un nouveau jeu
+Game Name: Nom du jeu
+Game name cannot be empty: Le nom du jeu ne peut pas être vide
+Player %s already exists: Le joueur %s existe déjà
+Player Name: Nom du joueur
+Start!: C'est parti !
+Sure?: Êtes vous sûr ?
+You need at lease %d players: Vous avez besoin de %d joueurs au moins
+about.content: |
+    # ScoreBooard - Un simple tableau de scores
+
+    Scoreboard est une simple application de tableau de scores pour un jeu donné. Elle a été développée en Go avec la librairie [Fyne.io](https://fyne.io).
+
+    ## Informations
+
+    Auteur: [Patrice Ferlet](https://github.com/metal3d) aka Metal3d.
+
+    Vous avez trouvé un bug ? Visitez [GitHub issues](https://github.com/metal3d/scoreboard/issues) (en anglais).
+
+    ## Licence MIT
+
+    Scoreboard, a simple score board application
+    Copyright © 2023 Patrice Ferlet
+
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+    OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+add.player: |
+    # Ajouter des joueurs
+
+    Créer des joueurs, vous devez en créer au moin %d
+documentation.text: |
+    # Scoreboard
+
+    Pressez le bouton "Créer un nouveau jeu" pour créer un nouveau jeu.
+
+    Il vous sera demandé, ensuite, de nommer le jeu. Puis vous pourrez créer des joueurs et démarrer le comptage de scores.
+key string: key string
+presentation.content: |
+    # Scoreboard
+
+    Scoreboard est une simple application pout facilement compter les points dans un jeu.
