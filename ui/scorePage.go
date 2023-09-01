@@ -11,11 +11,10 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
-var currentScore *data.Score
-
 // ScorePage creates the score page. It displays the scores of the players. All the scores are editable.
 func (a *App) ScorePage() {
 
+	var currentScore *data.Score
 	elements := []fyne.CanvasObject{}
 
 	for _, score := range a.currentGame.PlayerScores {

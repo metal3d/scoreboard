@@ -7,6 +7,7 @@ import (
 	"log"
 	"strconv"
 	"strings"
+	"time"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
@@ -118,9 +119,15 @@ func (e *EditableLabel) Text() string {
 }
 
 // SetFocus sets the focus on the entry.
-func (e *EditableLabel) SetFocus() {
-	// no-op
-	//fyne.CurrentApp().Driver().CanvasForObject(e.entry).Focus(e.entry)
+func (e *EditableLabel) SetFocus() error {
+	// BUG: This is a hack to wait the displays to be rendered. We need to find a better way to do this.
+	time.Sleep(10 * time.Millisecond)
+	if cnv := fyne.CurrentApp().Driver().CanvasForObject(e.entry); cnv != nil {
+		cnv.Focus(e.entry)
+		return nil
+	}
+
+	return fmt.Errorf("unable to set focus")
 }
 
 var (
