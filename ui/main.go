@@ -1,7 +1,6 @@
 package ui
 
 import (
-	"log"
 	"math"
 	"scoreboard/data"
 	"scoreboard/ui/resources"
@@ -30,7 +29,6 @@ func CreateApp() *App {
 	h = w / 16 * 9
 	w = float32(math.Ceil(float64(w)))
 	h = float32(math.Floor(float64(h)))
-	log.Printf("w: %f, h: %f", w, h)
 	window.Resize(fyne.NewSize(w, h))
 
 	return &App{
