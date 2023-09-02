@@ -67,10 +67,23 @@ func generate() {
 
 func getUntranslated() {
 	keys := make(map[string]bool)
-	gofiles, err := filepath.Glob("../**/*.go")
-	if err != nil {
-		log.Fatal(err)
-	}
+
+	// recursivelly find all go files in ../ui
+	gofiles := make([]string, 0)
+	filepath.Walk("../ui", func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if info.IsDir() {
+			return nil
+		}
+		if filepath.Ext(path) != ".go" {
+			return nil
+		}
+		log.Printf("Processing %s", path)
+		gofiles = append(gofiles, path)
+		return nil
+	})
 
 	for _, gofile := range gofiles {
 		log.Printf("Processing %s", gofile)
@@ -103,15 +116,21 @@ func getUntranslated() {
 	}
 
 	// en_US is the base translation, so we use it to fill the missing translations
-	loader := make(map[string]bool)
+	translationToLoad := make(map[string]bool)
 	baseTranslations := make(map[string]string)
+
+	// read all translations, fill the missing translations with the base translation
+	// and write the translations back to the yaml files
 	for i, langFile := range langFiles {
-		content, err := os.ReadFile(langFile)
+		infile, err := os.Open(langFile)
 		if err != nil {
 			log.Fatal(err)
 		}
+		defer infile.Close()
+
 		var translations map[string]string
-		err = yaml.Unmarshal(content, &translations)
+		dec := yaml.NewDecoder(infile)
+		err = dec.Decode(&translations)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -135,9 +154,9 @@ func getUntranslated() {
 		defer out.Close()
 		enc := yaml.NewEncoder(out)
 		enc.Encode(translations)
-		loader[langFile[:len(langFile)-5]] = true
+		translationToLoad[langFile[:len(langFile)-5]] = true
 	}
-	createLoader(loader)
+	createLoader(translationToLoad)
 }
 
 func createGoFile(langfile string) error {
