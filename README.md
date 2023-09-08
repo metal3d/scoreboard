@@ -17,8 +17,9 @@ A simple scoreboard application to calculate scores while you're playing.
 
 You could use FlatHub https://flathub.org/fr/apps/org.metal3d.scoreboard.
 
+Or downloade from the [Github Releases](https://github.com/metal3d/scoreboard/releases) for you targeted system.
 
-## Why ?
+## Why this app?
 
 Because I play Scrabble with my wife and I hate to write scores on a paper. Some mobile applications exist, but I wanted the application to be **simple**.
 
