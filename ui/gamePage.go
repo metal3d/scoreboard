@@ -52,6 +52,7 @@ func (a *App) GamePage() {
 		a.AddPlayersPage()
 	}
 
+	a.mainWindow.SetTitle(I("Scoreboard"))
 	a.mainWindow.SetContent(container.NewBorder(
 		label, nil, nil, nil,
 		form,

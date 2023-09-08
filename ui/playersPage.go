@@ -100,6 +100,8 @@ func (a *App) AddPlayersPage() {
 		nil, addPlayerView, backbutton, okbutton,
 	)
 
+	a.mainWindow.SetTitle(a.currentGame.Name + " - " + I("Add Players"))
+
 	a.mainWindow.SetContent(container.NewBorder(
 		topView,
 		nil, nil, nil,

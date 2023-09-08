@@ -48,6 +48,7 @@ func (a *App) ScorePage() {
 	elements[0].(*components.PlayerScore).AddScoreLine()
 
 	top := topBar(a)
+	a.mainWindow.SetTitle(a.currentGame.Name + " - " + I("Score"))
 
 	a.mainWindow.SetContent(
 		container.NewBorder(
@@ -64,35 +65,31 @@ func (a *App) ScorePage() {
 // topBar creates the top bar of the page. It contains a button to go back to the game page and a button to reset the game.
 func topBar(app *App) fyne.CanvasObject {
 
-	resetButton := widget.NewButtonWithIcon("", theme.DeleteIcon(), func() {
-		dialog.NewConfirm(I("Sure?"), I("Are you sure you want to reset the game?"), func(ok bool) {
-			if !ok {
-				return
-			}
+	toolbar := widget.NewToolbar(
+		widget.NewToolbarAction(theme.NavigateBackIcon(), func() {
 
-			for _, score := range app.currentGame.PlayerScores {
-				score.Scores = []float32{}
-			}
-			app.ScorePage()
-		}, app.mainWindow).Show()
-	})
+			dialog.NewConfirm(I("Sure?"), I("Are you sure you want to go back?"), func(ok bool) {
+				if !ok {
+					return
+				}
+				app.IndexPage()
+			}, app.mainWindow).Show()
+		}),
+		widget.NewToolbarSpacer(),
+		widget.NewToolbarAction(theme.DeleteIcon(), func() {
 
-	backButton := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
-		dialog.NewConfirm(I("Sure?"), I("Are you sure you want to go back?"), func(ok bool) {
-			if !ok {
-				return
-			}
-			app.IndexPage()
-		}, app.mainWindow).Show()
-	})
+			dialog.NewConfirm(I("Sure?"), I("Are you sure you want to reset the game?"), func(ok bool) {
+				if !ok {
+					return
+				}
 
-	title := widget.NewLabel(app.currentGame.Name)
-	title.Alignment = fyne.TextAlignCenter
-	title.TextStyle = fyne.TextStyle{Bold: true}
-	return container.NewBorder(
-		nil, nil,
-		backButton,
-		resetButton,
-		title,
+				for _, score := range app.currentGame.PlayerScores {
+					score.Scores = []float32{}
+				}
+				app.ScorePage()
+			}, app.mainWindow).Show()
+		}),
 	)
+	return toolbar
+
 }

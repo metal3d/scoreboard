@@ -48,6 +48,7 @@ func (a *App) IndexPage() {
 	doc := widget.NewRichTextFromMarkdown(I("documentation.text"))
 	doc.Wrapping = fyne.TextWrapWord
 
+	a.mainWindow.SetTitle(I("Scoreboard"))
 	a.mainWindow.SetContent(container.NewVBox(
 		icon,
 		doc,
