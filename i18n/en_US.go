@@ -4,6 +4,7 @@ package i18n
 
 var en_USTranslations = map[string]string{
 	"About":                             "About",
+	"Add Players":                       "Add Players",
 	"Are you sure you want to go back?": "Are you sure you want to go back?",
 	"Are you sure you want to reset the game?": "Are you sure you want to reset the game?",
 	"Close":                        "Close",
@@ -12,6 +13,8 @@ var en_USTranslations = map[string]string{
 	"Game name cannot be empty":    "Game name cannot be empty",
 	"Player %s already exists":     "Player %s already exists",
 	"Player Name":                  "Player Name",
+	"Score":                        "Score",
+	"Scoreboard":                   "Scoreboard",
 	"Start!":                       "Start!",
 	"Sure?":                        "Sure?",
 	"You need at lease %d players": "You need at lease %d players",

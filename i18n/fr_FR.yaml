@@ -1,4 +1,5 @@
 About: À propos
+Add Players: Ajout de joueurs
 Are you sure you want to go back?: Êtes vous sûr de vouloir revenir en arrière ?
 Are you sure you want to reset the game?: Êtes vous sûr de vouloir réinitialiser le jeu en cours ?
 Close: Fermer
@@ -7,13 +8,15 @@ Game Name: Nom du jeu
 Game name cannot be empty: Le nom du jeu ne peut pas être vide
 Player %s already exists: Le joueur %s existe déjà
 Player Name: Nom du joueur
+Score: Score
+Scoreboard: Scoreboard
 Start!: C'est parti !
 Sure?: Êtes vous sûr ?
 You need at lease %d players: Vous avez besoin de %d joueurs au moins
 about.content: |
     # ScoreBooard - Un simple tableau de scores
 
-    Scoreboard est une simple application de tableau de scores pour un jeu donné. Elle a été développée en Go avec la librairie [Fyne.io](https://fyne.io).
+    Scoreboard est une simple application de tableau de scores pour n'importe quel jeu. Elle a été développée en langage Go avec la librairie [Fyne.io](https://fyne.io).
 
     ## Informations
 
@@ -23,7 +26,7 @@ about.content: |
 
     ## Licence MIT
 
-    Scoreboard, a simple score board application
+    Scoreboard, un simple tableau de scores
 
     MIT License
 

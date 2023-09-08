@@ -4,10 +4,31 @@ Internationalization is generated from yaml files. The procedure is simple:
 
 - If the file doens't exists yet, create an empty file named `xx_XX.yaml` in this folder containing `{}` where `xx_XX` is the languages code (e.g. `de_DE`): `echo "{}" > i18n/xx_XX.yaml`
 - call the generator: `go generate ./...`
-- the file is now filled with keys and translation. All the translation value are **in english**
-- change **the values** (not the keys)
-- call the generator one more time: `go genetare ./...`
+- the file is now filled with keys and translation. All the translation value are **in english** at this time.
+- change **the values** (not the keys), we mean that you must now translate english to the target langage.
+- call the generator one more time, to apply your changes: `go genetare ./...`
 - now the `xx_XX.go` file contains the translations. Also, the `loader.go` file should reference the new langage
+
+
+In short:
+
+```bash
+# replace xx_XX to the lang code:
+app_lang="xx_XX"
+
+# make the file if it does not exists
+[ -f i18n/${app_lang}.yaml ] || echo "{}" > i18n/${app_lang}.yaml
+
+unset app_lang
+
+# generate keys
+go genetare ./...
+
+# => open the i18n/xx_XX.yaml file, translate the values, then
+# regenerate
+go generate ./...
+```
+
 
 ## What does the generator?
 
