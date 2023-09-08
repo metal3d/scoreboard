@@ -17,7 +17,7 @@ A simple scoreboard application to calculate scores while you're playing.
 
 You could use FlatHub https://flathub.org/fr/apps/org.metal3d.scoreboard.
 
-Or downloade from the [Github Releases](https://github.com/metal3d/scoreboard/releases) for you targeted system.
+Or downloade from the [GitHub Releases](https://github.com/metal3d/scoreboard/releases) for you targeted system.
 
 ## Why this app?
 
