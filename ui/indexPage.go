@@ -1,7 +1,9 @@
 package ui
 
 import (
+	"fmt"
 	"scoreboard/ui/resources"
+	"scoreboard/version"
 
 	. "scoreboard/i18n"
 
@@ -25,7 +27,8 @@ func (a *App) IndexPage() {
 		icon := canvas.NewImageFromResource(resources.ResourceIconPng)
 		icon.FillMode = canvas.ImageFillContain
 		icon.SetMinSize(fyne.NewSize(64, 64))
-		richtext := widget.NewRichTextFromMarkdown(I("about.content"))
+		about := fmt.Sprintf(I("about.content"), version.Version())
+		richtext := widget.NewRichTextFromMarkdown(about)
 		richtext.Wrapping = fyne.TextWrapWord
 
 		scroll := container.NewVScroll(richtext)

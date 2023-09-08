@@ -1,8 +1,8 @@
 Website = "https://www.metal3d.org"
 
 [Details]
-  Icon = "../../Icon.png"
+  Icon = "./Icon.png"
   Name = "Scoreboard"
   ID = "org.metal3d.scoreboard"
-  Version = "1.0.0"
-  Build = 15
+  Version = "1.1.0"
+  Build = 16

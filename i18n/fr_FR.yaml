@@ -22,6 +22,8 @@ about.content: |
 
     Auteur: [Patrice Ferlet](https://github.com/metal3d) aka Metal3d.
 
+    Version: %s
+
     Vous avez trouvé un bug ? Visitez [GitHub issues](https://github.com/metal3d/scoreboard/issues) (en anglais).
 
     ## Licence MIT
