@@ -5,4 +5,4 @@ Website = "https://www.metal3d.org"
   Name = "Scoreboard"
   ID = "org.metal3d.scoreboard"
   Version = "1.1.0"
-  Build = 16
+  Build = 22
